@@ -1,22 +1,10 @@
-//import ListGroup from "./components/ListGroup";
-import Alert from "./components/Alert";
+import axios from "axios";
+import NavBar from "./components/NavBar";
 
 function App() {
-  /* ListGroup
-  let items = ["New York", "London", "San Francisco", "Tokyo", "Paris"];
-
-  const handleSelectItem = (item: string) => {
-    console.log(item);
-  };
-
-  <ListGroup />
-  */
   return (
     <div>
-      <Alert>
-        Hello World!
-        <span className="badge text-bg-primary rounded-pill">1</span>
-      </Alert>
+      <NavBar />
     </div>
   );
 }
