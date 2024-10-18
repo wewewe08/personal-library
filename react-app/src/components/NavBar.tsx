@@ -1,11 +1,19 @@
 import logo from "../assets/react.svg";
+import React, { useState } from "react";
+import BookForm from "./BookForm";
 
 function NavBar() {
+  const [isFormVisible, setIsFormVisible] = useState(false);
+
+  const toggleForm = () => {
+    setIsFormVisible(!isFormVisible);
+  };
+
   return (
     // Fragments get rid of unnecessary div elements; empty brackets tell React to use Fragments
     <>
       <nav className="navbar bg-body-tertiary">
-        <div className="container-fluid justify-content-start">
+        <div className="container-fluid justify-content-around">
           <a className="navbar-brand" href="#">
             <img
               src={logo}
@@ -17,7 +25,7 @@ function NavBar() {
           </a>
           <div
             className="d-flex input-group has-search"
-            style={{ width: "87%" }}
+            style={{ width: "80%" }}
           >
             <span
               className="input-group-text"
@@ -30,20 +38,6 @@ function NavBar() {
               className="form-control shadow-none"
               placeholder="Search library"
             />
-          </div>
-          <div className="form-check form-switch">
-            <input
-              className="form-check-input shadow-none"
-              type="checkbox"
-              role="switch"
-              id="flexSwitchCheckDefault"
-            />
-            <label
-              className="form-check-label "
-              htmlFor="flexSwitchCheckDefault"
-            >
-              Dark Mode
-            </label>
           </div>
         </div>
       </nav>
