@@ -14,10 +14,9 @@ function BookEntry(props: Props) {
   const deleteBook = async (isbn: string) => {
     try {
       await axios.delete(`http://localhost:8000/api/library/${isbn}`);
-      alert("Book deleted successfully!");
-
       const res = await axios.get("http://localhost:8000/api/library");
       setLibrary(res.data);
+      alert(`Book with ISBN ${isbn} deleted successfully!`);
     } catch (error) {
       console.error("Error deleting book:", error);
       alert("Error deleting the book. Please try again.");
