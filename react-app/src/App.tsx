@@ -1,12 +1,10 @@
 import axios from "axios";
-import NavBar from "./components/NavBar";
-import BookForm from "./components/BookForm";
+import LibraryManager from "./components/LibraryManager";
 
 function App() {
   return (
     <div>
-      <NavBar />
-      <BookForm />
+      <LibraryManager />
     </div>
   );
 }

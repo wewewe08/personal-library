@@ -1,35 +1,24 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import LibraryView from "./LibraryView";
 
-function BookForm() {
-  const [library, setLibrary] = useState<
-    {
+interface Props {
+  setLibrary: (
+    library: {
       isbn: string;
       genre: string;
       title: string;
       author: string;
       status: boolean;
     }[]
-  >([]);
+  ) => void;
+}
+
+function BookForm({ setLibrary }: Props) {
   const [isbn, setIsbn] = useState("");
   const [genre, setGenre] = useState("");
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [isRead, setIsRead] = useState(false);
-
-  useEffect(() => {
-    const loadLibrary = async () => {
-      try {
-        const res = await axios.get("http://localhost:8000/api/library");
-        setLibrary(res.data);
-      } catch (error) {
-        console.error("Error fetching library:", error);
-      }
-    };
-
-    loadLibrary();
-  }, []);
 
   const checkISBN = () => {
     if (!isbn) {
@@ -109,7 +98,7 @@ function BookForm() {
   return (
     <>
       <div
-        className="container justify-content-center align-items-center"
+        className="container justify-content-center align-items-center mt-4"
         style={{ display: "flex" }}
       >
         <form
@@ -194,11 +183,6 @@ function BookForm() {
           </div>
         </form>
       </div>
-      <LibraryView
-        library={library}
-        length={library.length}
-        setLibrary={setLibrary}
-      />
     </>
   );
 }

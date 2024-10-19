@@ -1,0 +1,48 @@
+#intro-container {
+    height: 75vh;
+}
+
+.custom-hr {
+    position: relative;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.custom-hr::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 50%;
+    height: 1px;
+    background: linear-gradient(to right, #000000, #ffffff);
+}
+
+.custom-hr::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 50%;
+    height: 1px;
+    background: linear-gradient(to left, #000000, #ffffff);
+}
+
+.custom-hr::before {
+    left: 0;
+    right: 0;
+    margin-right: 20px;
+}
+
+.custom-hr::after {
+    left: 50%;
+    right: 0;
+    margin-left: 20px;
+}
+
+.custom-hr i {
+    font-size: 24px;
+    color: #e0a82d;
+    position: relative;
+    z-index: 1;
+    background-color: #fff;
+    padding: 0 10px;
+}
