@@ -18,6 +18,13 @@ async def fetch_all_books():
         books.append(Book(**document)) # ** unpack document into book
     return books
 
+async def fetch_all_books_with_title(title):
+    books = []
+    cursor = collection.find({title})
+    async for document in cursor:
+        books.append(Book(**document)) # ** unpack document into book
+    return books
+
 async def create_book(book):
     document = book
     result = await collection.insert_one(document)

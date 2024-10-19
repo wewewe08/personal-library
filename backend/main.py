@@ -7,6 +7,7 @@ app = FastAPI()
 from database import (
     fetch_one_book,
     fetch_all_books,
+    fetch_all_books_with_title,
     create_book,
     update_book,
     remove_book
@@ -33,23 +34,31 @@ async def get_library():
     return response
 
 @app.get("/api/library/{isbn}", response_model=Book)
-async def get_book_by_isbn(isbn : int):
+async def get_book_by_isbn(isbn : str):
     response = await fetch_one_book(isbn)
     if response:
         return response
     else:
         raise HTTPException(404, f"There is no book with the ISBN {isbn}")
+    
+@app.get("/api/library/{title}", response_model=Book)
+async def get_books_with_title(title: str):
+    response = await fetch_all_books_with_title(title);
+    if response:
+        return response
+    else:
+        raise HTTPException(404, f"There are no books with the title {title}")
 
 @app.post("/api/library", response_model=Book)
 async def post_book(book:Book):
-    response = await create_book(book.dict()) # convert JSON to dictionary
+    response = await create_book(book.model_dump()) # convert JSON to dictionary
     if response:
         return response
     else:
         raise HTTPException(400, f"Something went wrong / Bad request") 
 
 @app.put("/api/library/{isbn}", response_model=Book)
-async def put_book(isbn: int, status: bool):
+async def put_book(isbn: str, status: bool):
     response = await update_book(isbn, status)
     if response:
         return response

@@ -6,4 +6,3 @@ class Book(BaseModel):
     title: str
     author: str
     status: bool
-    

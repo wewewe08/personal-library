@@ -3,7 +3,15 @@ import React, { useEffect, useState } from "react";
 import LibraryView from "./LibraryView";
 
 function BookForm() {
-  const [library, setLibrary] = useState([]);
+  const [library, setLibrary] = useState<
+    {
+      isbn: string;
+      genre: string;
+      title: string;
+      author: string;
+      status: boolean;
+    }[]
+  >([]);
   const [isbn, setIsbn] = useState("");
   const [genre, setGenre] = useState("");
   const [title, setTitle] = useState("");
@@ -23,15 +31,36 @@ function BookForm() {
     loadLibrary();
   }, []);
 
-  const addLibraryHandler = async () => {
+  const checkISBN = () => {
     if (!isbn) {
       alert("ISBN is required");
-      return;
+      return false;
     } else if (!/^\d+$/.test(isbn)) {
       alert("ISBN must be numeric");
-      return;
+      return false;
     } else if (isbn.length !== 10 && isbn.length !== 13) {
       alert("ISBN must be either 10 or 13 digits long");
+      return false;
+    }
+
+    return true;
+  };
+
+  const isbnExists = async () => {
+    try {
+      const res = await axios.get(`http://localhost:8000/api/library/${isbn}`);
+      console.log(res.data);
+      alert("You already have a book registered with this ISBN!");
+      return false;
+    } catch (error) {
+      // need a better way to check if error is a 404 not found
+      return true;
+    }
+  };
+
+  const addLibraryHandler = async () => {
+    const isValidISBN = checkISBN();
+    if (!isValidISBN) {
       return;
     }
 
@@ -44,6 +73,10 @@ function BookForm() {
       !author
     ) {
       alert("Please ensure all fields are filled out correctly.");
+      return;
+    }
+
+    if ((await isbnExists()) === false) {
       return;
     }
 
@@ -142,6 +175,7 @@ function BookForm() {
                 className="form-check-input"
                 type="checkbox"
                 id="gridCheck"
+                checked={isRead}
                 onChange={(e) => setIsRead(e.target.checked)}
               />
               <label className="form-check-label" htmlFor="gridCheck">
@@ -160,7 +194,11 @@ function BookForm() {
           </div>
         </form>
       </div>
-      <LibraryView library={library} length={library.length} />
+      <LibraryView
+        library={library}
+        length={library.length}
+        setLibrary={setLibrary}
+      />
     </>
   );
 }

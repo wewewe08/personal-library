@@ -36,7 +36,7 @@ function NavBar() {
             <input
               type="text"
               className="form-control shadow-none"
-              placeholder="Search library"
+              placeholder="Search library by ISBN, book title, or author..."
             />
           </div>
         </div>
