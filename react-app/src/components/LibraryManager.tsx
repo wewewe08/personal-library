@@ -4,6 +4,8 @@ import LibraryView from "./LibraryView";
 import NavBar from "./NavBar";
 import Intro from "./Intro";
 
+import "./LibraryManager.css";
+
 function LibraryManager() {
   const [library, setLibrary] = useState<
     {

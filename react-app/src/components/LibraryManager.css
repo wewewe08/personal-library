@@ -1,0 +1,15 @@
+.App {
+    text-align: center;
+}
+
+body {
+  background-color: #fff;
+  color: #212121 ;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+      background-color: #1f2023 !important;
+      color: #fff !important;
+    }
+}

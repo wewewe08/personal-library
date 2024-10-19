@@ -1,12 +1,7 @@
-import axios from "axios";
 import LibraryManager from "./components/LibraryManager";
 
 function App() {
-  return (
-    <div>
-      <LibraryManager />
-    </div>
-  );
+  return <LibraryManager />;
 }
 
 export default App;

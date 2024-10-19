@@ -1,41 +1,31 @@
 #intro-container {
-    height: 75vh;
+    height: 100vh;
+    padding-top: 10rem;
 }
 
 .custom-hr {
     position: relative;
     text-align: center;
-    margin: 20px 0;
+    margin: 1rem 0;
 }
 
 .custom-hr::after {
     content: '';
     position: absolute;
     top: 50%;
-    width: 50%;
+    width: 47%;
     height: 1px;
-    background: linear-gradient(to right, #000000, #ffffff);
+    background: linear-gradient(to right, #121212, #ffffff);
 }
 
 .custom-hr::before {
     content: '';
     position: absolute;
-    top: 50%;
-    width: 50%;
-    height: 1px;
-    background: linear-gradient(to left, #000000, #ffffff);
-}
-
-.custom-hr::before {
     left: 0;
-    right: 0;
-    margin-right: 20px;
-}
-
-.custom-hr::after {
-    left: 50%;
-    right: 0;
-    margin-left: 20px;
+    top: 50%;
+    width: 50%;
+    height: 1px;
+    background: linear-gradient(to left, #121212, #ffffff);
 }
 
 .custom-hr i {
@@ -45,4 +35,18 @@
     z-index: 1;
     background-color: #fff;
     padding: 0 10px;
+}
+
+@media (prefers-color-scheme: dark) {
+    .custom-hr::after {
+        background: linear-gradient(to left, #1f2023, #ffffff) !important;
+    }
+    
+    .custom-hr::before {
+        background: linear-gradient(to right, #1f2023, #ffffff) !important;
+    }
+    
+    .custom-hr i {
+        background-color: #1f2023 !important;
+    }
 }

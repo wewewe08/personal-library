@@ -1,5 +1,5 @@
-import logo from "../assets/react.svg";
-import React, { useState } from "react";
+import logo from "../assets/bookshelf.svg";
+import { useState } from "react";
 import BookForm from "./BookForm";
 
 interface Props {
@@ -28,7 +28,7 @@ function NavBar({ setLibrary }: Props) {
   return (
     // Fragments get rid of unnecessary div elements; empty brackets tell React to use Fragments
     <>
-      <nav className="navbar bg-body-tertiary bg-dark bg-gradient">
+      <nav className="navbar bg-body-tertiary">
         <div className="container-fluid justify-content-around">
           <a className="navbar-brand" href="#">
             <img
