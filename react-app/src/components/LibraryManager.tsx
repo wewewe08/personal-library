@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import LibraryView from "./LibraryView";
 import NavBar from "./NavBar";
-import Intro from "./Intro";
+import Intro from "./FrontPage";
 
 import "./LibraryManager.css";
 

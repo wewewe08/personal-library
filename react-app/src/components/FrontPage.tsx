@@ -1,8 +1,8 @@
-import "./Intro.css";
+import "./FrontPage.css";
 import logo from "../assets/bookshelf.svg";
 import { Fade } from "react-awesome-reveal";
 
-function Intro() {
+function FrontPage() {
   return (
     <>
       <div
@@ -27,4 +27,4 @@ function Intro() {
   );
 }
 
-export default Intro;
+export default FrontPage;
