@@ -1,6 +1,7 @@
 ![bookshelf](https://github.com/user-attachments/assets/a51c1b5d-a68e-430c-9043-ee2d9c04f21f)
 # Personal Library
 ![Build Status](https://img.shields.io/github/actions/workflow/status/wewewe08/personal-library/build.yml)
+
 A fullstack web application for managing and tracking the books that I have read and plan to read. 
 
 ## Features
