@@ -20,7 +20,7 @@ interface Props {
   ) => void;
 }
 
-const LibraryView = ({ library, length, setLibrary }: Props) => {
+function LibraryView({ library, length, setLibrary }: Props) {
   return (
     <>
       <div className="container text-center">
@@ -49,6 +49,6 @@ const LibraryView = ({ library, length, setLibrary }: Props) => {
       </div>
     </>
   );
-};
+}
 
 export default LibraryView;
