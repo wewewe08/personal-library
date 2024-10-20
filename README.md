@@ -2,6 +2,7 @@
 
 # Personal Library
 ![GitHub last commit](https://img.shields.io/github/last-commit/wewewe08/personal-library) ![React](https://img.shields.io/badge/-React-blue?logo=react&logoColor=white) ![FastAPI](https://img.shields.io/badge/-FastAPI-109989?logo=fastapi&logoColor=white) ![MongoDB](https://img.shields.io/badge/-MongoDB-4EA94B?logo=mongodb&logoColor=white)
+
 A fullstack web application for managing and tracking my personal book collection.
 
 ## Features
