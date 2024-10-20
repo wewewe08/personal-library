@@ -1,10 +1,8 @@
 ![bookshelf](https://github.com/user-attachments/assets/a51c1b5d-a68e-430c-9043-ee2d9c04f21f)
 
 # Personal Library
-
-![Build Status](https://img.shields.io/github/actions/workflow/status/wewewe08/personal-library/build.yml)
-
-A fullstack web application for managing and tracking my personal book collection. Utilizes React, FastAPI (motor driver), and MongoDB.
+![GitHub last commit](https://img.shields.io/github/last-commit/wewewe08/personal-library) ![React](https://img.shields.io/badge/-React-blue?logo=react&logoColor=white) ![FastAPI](https://img.shields.io/badge/-FastAPI-109989?logo=fastapi&logoColor=white) ![MongoDB](https://img.shields.io/badge/-MongoDB-4EA94B?logo=mongodb&logoColor=white)
+A fullstack web application for managing and tracking my personal book collection.
 
 ## Features
 
