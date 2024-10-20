@@ -32,7 +32,7 @@ const LibraryView = ({ library, length, setLibrary }: Props) => {
                 No books registered in library.
               </div>
             ) : (
-              <div className="row">
+              <div className="row" id="library">
                 {/* Book entries go here */}
 
                 {library.map((book) => (

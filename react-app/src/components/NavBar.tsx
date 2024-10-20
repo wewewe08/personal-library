@@ -1,6 +1,8 @@
 import logo from "../assets/bookshelf.svg";
 import { useState } from "react";
 import BookForm from "./BookForm";
+import Reveal from "react-awesome-reveal";
+import { keyframes } from "@emotion/react";
 
 interface Props {
   setLibrary: (
@@ -16,6 +18,17 @@ interface Props {
 
 function NavBar({ setLibrary }: Props) {
   const [isFormOpen, setIsFormOpen] = useState(false);
+  const openAnimation = keyframes`
+  from {
+    opacity: 0;
+    transform: translate3d(0, -1rem, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+`;
 
   const openBookForm = () => {
     setIsFormOpen(true);
@@ -62,7 +75,11 @@ function NavBar({ setLibrary }: Props) {
           </button>
         </div>
       </nav>
-      {isFormOpen === true && <BookForm setLibrary={setLibrary} />}
+      {isFormOpen === true && (
+        <Reveal keyframes={openAnimation} triggerOnce>
+          <BookForm setLibrary={setLibrary} />
+        </Reveal>
+      )}
     </>
   );
 }

@@ -81,6 +81,12 @@ function BookForm({ setLibrary }: Props) {
       console.log("Sending book data:", bookData);
       await axios.post("http://localhost:8000/api/library", bookData);
       alert("Book added successfully!");
+      const libraryElement = document.getElementById("library");
+      if (libraryElement) {
+        libraryElement.scrollIntoView({ behavior: "smooth" });
+      } else {
+        console.log("error");
+      }
       await axios.get("http://localhost:8000/api/library").then((res) => {
         setLibrary(res.data);
       });
