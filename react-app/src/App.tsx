@@ -1,7 +1,11 @@
-import LibraryManager from "./components/LibraryManager";
+import LibraryTable from "./components/LibraryTable";
 
 function App() {
-  return <LibraryManager />;
+  return (
+    <>
+      <LibraryTable />
+    </>
+  );
 }
 
 export default App;
